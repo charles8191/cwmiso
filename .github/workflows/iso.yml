@@ -1,0 +1,28 @@
+name: ISO
+
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Prepare
+        run: |
+          git clone --depth 1 https://github.com/centos-workstation/main
+          mv main/* .
+          rm -rf main
+      - name: Build ISO
+        id: build
+        uses: centos-workstation/bootc-image-builder-action@main
+        with:
+          config-file: ./image-builder-iso.config.toml
+          image: ghcr.io/centos-workstation/main:stream10
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: iso
+          path: ${{ steps.build.outputs.output-path }}
