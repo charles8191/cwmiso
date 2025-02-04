@@ -1,6 +1,6 @@
 # cwmiso
 
-Simple project that makes monthly ISOs of [Bluefin LTS/Achillobator' base image](https://github.com/centos-workstation/main). They are offline media.
+Simple project that makes monthly ISOs of [Bluefin LTS' base image](https://github.com/centos-workstation/main). They are offline media.
 
 ## Download
 
