@@ -17,7 +17,7 @@ jobs:
           rm -rf main
       - name: Build ISO
         id: build
-        uses: centos-workstation/bootc-image-builder-action@main
+        uses: ublue-os/bootc-image-builder-action@main
         with:
           config-file: ./image-builder-iso.config.toml
           image: ghcr.io/centos-workstation/main:stream10
